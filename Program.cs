@@ -35,8 +35,6 @@ class Program // para probar
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
         
-        //OOOooooooolllllllalalallalalalallal
-        
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
 }
