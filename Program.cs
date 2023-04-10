@@ -27,7 +27,10 @@ public class LoadTxt
 
 }
 
-
+class perro     // => Danielllll  Como hago el constructor?
+{
+    
+}
 
 class Program // para probar 
 {
