@@ -1,0 +1,15 @@
+/Users/mariasilvia/Documents/Moogle/MoogleTest/bin/Debug/net7.0/MoogleTest
+/Users/mariasilvia/Documents/Moogle/MoogleTest/bin/Debug/net7.0/MoogleTest.deps.json
+/Users/mariasilvia/Documents/Moogle/MoogleTest/bin/Debug/net7.0/MoogleTest.runtimeconfig.json
+/Users/mariasilvia/Documents/Moogle/MoogleTest/bin/Debug/net7.0/MoogleTest.dll
+/Users/mariasilvia/Documents/Moogle/MoogleTest/bin/Debug/net7.0/MoogleTest.pdb
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.csproj.AssemblyReference.cache
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.AssemblyInfoInputs.cache
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.AssemblyInfo.cs
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.csproj.CoreCompileInputs.cache
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.dll
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/refint/MoogleTest.dll
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.pdb
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/MoogleTest.genruntimeconfig.cache
+/Users/mariasilvia/Documents/Moogle/MoogleTest/obj/Debug/net7.0/ref/MoogleTest.dll
