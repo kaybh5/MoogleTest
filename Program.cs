@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 public class LoadTxt
 {
@@ -29,7 +29,9 @@ public class LoadTxt
 
 class perro     // => Danielllll  Como hago el constructor?
 {
-    
+    public perro(){     //ASi se hace kayla
+
+    }
 }
 
 class Program // para probar 
