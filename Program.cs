@@ -26,23 +26,37 @@ public class LoadTxt
         }
         return this.TxtFilesPaths;
     }
-    
+    public string[] AllWords()
+    {
+        StreamReader reader = new StreamReader("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
+        string text = reader.ReadToEnd();
+        reader.Close();
 
-} 
+        string[] words = text.Split(new char[] { ' ', 'n', 'r', 't' }, StringSplitOptions.RemoveEmptyEntries);
+        //  para separar el contenido del archivo de texto en palabras y almacenándolas en un array llamado "words"
+
+    return words ; 
+
+
+    }
+
+}
+
+
 
 
 
 class Program // para probar 
 {
 
-    
+
     static void Main()
     {
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
-
+    
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
 
-    
+
 }
