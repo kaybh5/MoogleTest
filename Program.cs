@@ -62,7 +62,6 @@ public class LoadTxt
         return this.Words;
     }
 }
-
 class Program // para probar 
 {
     static void Main()
