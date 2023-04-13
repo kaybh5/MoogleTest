@@ -5,7 +5,7 @@ public class LoadTxt
     public string Direccion { get; set; }
     public string[] AllFilesPaths { get; set; }
     public string[] TxtFilesPaths { get; set; }
-
+    public string[] Texts { get; set; }
 
 
     public LoadTxt(string direccion)
@@ -13,6 +13,7 @@ public class LoadTxt
         Direccion = direccion;  //Esto almacena la direccion de la carpeta donde estan los archivos ejemplo: kayla/moogle/content
         AllFilesPaths = Directory.GetFiles(this.Direccion); //esta variable contiene todas las direcciones de los archivos de la carpeta
         TxtFilesPaths = new string[AllFilesPaths.Length]; // contiene solamente las direcciones de los archivos que terminen en .txt
+        Texts = new string[AllFilesPaths.Length];
     }
 
     public string[] CleanPaths()
@@ -26,45 +27,32 @@ public class LoadTxt
         }
         return this.TxtFilesPaths;
     }
-    public string[] AllWords() // daniel como puedo probar si esta poronga funciona ?? 
-    {
 
-        HashSet<string> unrepeatedWords = new HashSet<string>();
-        StreamReader reader = new StreamReader("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
-        string text = reader.ReadToEnd();
-        reader.Close();
-
-        while (true)
+    public string[] GetTextosFromTXT(){
+        for (int i = 0; i < this.TxtFilesPaths.Length; i++)
         {
-            
+            if (this.TxtFilesPaths[i] != null)
+            {
+                Texts[i] = File.ReadAllText(this.TxtFilesPaths[i]);
+            }
         }
-
-        string[] words = text.Split(new char[] { ' ', 'n', 'r', 't' }, StringSplitOptions.RemoveEmptyEntries);
-        //  para separar el contenido del archivo de texto en palabras y almacenándolas en un array llamado "words"
-
-        return words;
-
-
+        System.Console.WriteLine(string.Join(", ", this.Texts));
+        return this.Texts;
     }
+
+
 
 
 }
 
-
-
-
-
 class Program // para probar 
 {
-
-
     static void Main()
     {
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
+        Objeto1.GetTextosFromTXT();
 
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
-
-
 }
