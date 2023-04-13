@@ -6,6 +6,8 @@ public class LoadTxt
     public string[] AllFilesPaths { get; set; }
     public string[] TxtFilesPaths { get; set; }
     public string[] Texts { get; set; }
+    public string[] Words { get; set; }
+
 
 
     public LoadTxt(string direccion)
@@ -14,6 +16,8 @@ public class LoadTxt
         AllFilesPaths = Directory.GetFiles(this.Direccion); //esta variable contiene todas las direcciones de los archivos de la carpeta
         TxtFilesPaths = new string[AllFilesPaths.Length]; // contiene solamente las direcciones de los archivos que terminen en .txt
         Texts = new string[AllFilesPaths.Length];
+        string[] Word;
+
     }
 
     public string[] CleanPaths()
@@ -28,21 +32,35 @@ public class LoadTxt
         return this.TxtFilesPaths;
     }
 
-    public string[] GetTextosFromTXT(){
+    public string[] GetTextosFromTXT()  //Devuelve los textos que estan en los txt
+    {
         for (int i = 0; i < this.TxtFilesPaths.Length; i++)
         {
             if (this.TxtFilesPaths[i] != null)
             {
-                Texts[i] = File.ReadAllText(this.TxtFilesPaths[i]);
+                this.Texts[i] = File.ReadAllText(this.TxtFilesPaths[i]);
+                this.Texts[i] = this.Texts[i].ToLower();
             }
         }
-        System.Console.WriteLine(string.Join(", ", this.Texts));
+       // System.Console.WriteLine(string.Join(", ", this.Texts));
         return this.Texts;
     }
 
+    public string[] SepararPalabras()   //Separa los textos en palabras
+    {
+        string VariableQueContieneTodosLosTexos = "";
+        for (int i = 0; i < this.Texts.Length; i++)
+        {
+            VariableQueContieneTodosLosTexos += this.Texts[i];
+        }
+        char[] delimeters = new char[] { ' ', '.', ',', ';', ':', '!', '?', };
+        Words = VariableQueContieneTodosLosTexos.Split(delimeters, StringSplitOptions.RemoveEmptyEntries);
+
+        System.Console.WriteLine(string.Join(", ", Words));
 
 
-
+        return this.Words;
+    }
 }
 
 class Program // para probar 
@@ -52,6 +70,7 @@ class Program // para probar
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
         Objeto1.GetTextosFromTXT();
+        Objeto1.SepararPalabras();
 
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
