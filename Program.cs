@@ -26,19 +26,27 @@ public class LoadTxt
         }
         return this.TxtFilesPaths;
     }
-    public string[] AllWords()
+    public string[] AllWords() // daniel como puedo probar si esta poronga funciona ?? 
     {
+
+        HashSet<string> unrepeatedWords = new HashSet<string>();
         StreamReader reader = new StreamReader("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         string text = reader.ReadToEnd();
         reader.Close();
 
+        while (true)
+        {
+            
+        }
+
         string[] words = text.Split(new char[] { ' ', 'n', 'r', 't' }, StringSplitOptions.RemoveEmptyEntries);
         //  para separar el contenido del archivo de texto en palabras y almacenándolas en un array llamado "words"
 
-    return words ; 
+        return words;
 
 
     }
+
 
 }
 
@@ -54,7 +62,7 @@ class Program // para probar
     {
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
-    
+
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
 
