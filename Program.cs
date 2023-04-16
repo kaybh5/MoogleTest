@@ -8,15 +8,17 @@ public class LoadTxt
     public string[] Texts { get; set; }
     public string[] Words { get; set; }
 
+     public string[] UnrepeatedWords {get ; set; }
 
 
-    public LoadTxt(string direccion)
-    { // metodo para cargar los txt :), constructor 
+    public LoadTxt(string direccion)  //constructor
+    { // metodo para cargar los txt :),  
         Direccion = direccion;  //Esto almacena la direccion de la carpeta donde estan los archivos ejemplo: kayla/moogle/content
         AllFilesPaths = Directory.GetFiles(this.Direccion); //esta variable contiene todas las direcciones de los archivos de la carpeta
         TxtFilesPaths = new string[AllFilesPaths.Length]; // contiene solamente las direcciones de los archivos que terminen en .txt
         Texts = new string[AllFilesPaths.Length];
         string[] Word;
+        string [] UnrepeatedWords ; 
 
     }
 
@@ -42,7 +44,7 @@ public class LoadTxt
                 this.Texts[i] = this.Texts[i].ToLower();
             }
         }
-       // System.Console.WriteLine(string.Join(", ", this.Texts));
+        // System.Console.WriteLine(string.Join(", ", this.Texts));
         return this.Texts;
     }
 
@@ -60,16 +62,32 @@ public class LoadTxt
 
 
         return this.Words;
+
+
+
     }
+
+        public  String[] CleanWords()
+        {       //para quitar las palabras repetidas de los txt
+            this.UnrepeatedWords = Words.Distinct().ToArray();
+            return this.UnrepeatedWords;
+        }
 }
+
+
 class Program // para probar 
 {
+
+
+    
     static void Main()
     {
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
         Objeto1.CleanPaths();
         Objeto1.GetTextosFromTXT();
         Objeto1.SepararPalabras();
+        Objeto1.CleanWords(); 
+
 
         //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
     }
