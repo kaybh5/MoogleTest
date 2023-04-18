@@ -55,16 +55,13 @@ public class LoadTxt
         {
             VariableQueContieneTodosLosTexos += this.Texts[i];
         }
-        char[] delimeters = new char[] { ' ', '.', ',', ';', ':', '!', '?', };
+        char[] delimeters = new char[] {' ', '.', ',', ';', ':', '!', '?',};
         Words = VariableQueContieneTodosLosTexos.Split(delimeters, StringSplitOptions.RemoveEmptyEntries);
 
-        System.Console.WriteLine(string.Join(", ", Words));
+       // System.Console.WriteLine(string.Join(", ", Words));
 
 
         return this.Words;
-
-
-
     }
 
         public  String[] CleanWords()
@@ -72,23 +69,25 @@ public class LoadTxt
             this.UnrepeatedWords = Words.Distinct().ToArray();
             return this.UnrepeatedWords;
         }
+
+//Te agregue esto aqui para hacerlo mas organizado
+        public void CargarDatos(){
+            CleanPaths();
+            GetTextosFromTXT();
+            SepararPalabras();
+            CleanWords();
+        }
 }
 
 
 class Program // para probar 
 {
-
-
-    
     static void Main()
     {
         LoadTxt Objeto1 = new LoadTxt("/Users/mariasilvia/Documents/Moogle/MoogleTest/content");
-        Objeto1.CleanPaths();
-        Objeto1.GetTextosFromTXT();
-        Objeto1.SepararPalabras();
-        Objeto1.CleanWords(); 
-
-
-        //System.Console.WriteLine(string.Join("\n ", Objeto1.Direcciones));
+        //LoadTxt Objeto1 = new LoadTxt("/home/dnielpy/Documentos/Code/Trainning/FriendsCode/Kayla/MoogleTest/content");    //Esto dejalo aqui para yo poder correrlo en mi pc
+        Objeto1.CargarDatos();    //Ejecutas esto y ya se encarga de cargar todos los datos
+        System.Console.WriteLine(string.Join(", ", Objeto1.UnrepeatedWords));  //Esto es para imrpimir solo las palabras no repetidas. Cambia Objeto1.CleanWords por la propiedad que quieras imprimir
     }
 }
+
